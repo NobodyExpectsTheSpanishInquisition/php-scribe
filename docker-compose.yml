@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  php:
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile.php
+      args:
+        - PHP_VERSION=${PHP_VERSION}
+        - PATH=${TARGET_VOLUME_PATH}
+    volumes:
+      - ${SOURCE_VOLUME_PATH}:${TARGET_VOLUME_PATH}:${VOLUME_MODE}
+    container_name: ${CONTAINER_NAME}
