@@ -7,3 +7,5 @@ RUN pecl install xdebug
 
 ARG PATH
 WORKDIR $PATH
+
+COPY ./php ./php
